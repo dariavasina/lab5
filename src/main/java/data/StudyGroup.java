@@ -1,0 +1,112 @@
+package data;
+import java.time.LocalDate;
+
+public class StudyGroup implements Comparable<StudyGroup> {
+    private Long id;
+    private static Long nextId = 1L;
+    private String name; //Поле не может быть null, Строка не может быть пустой
+    private Coordinates coordinates; //Поле не может быть null
+    private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private Integer studentsCount; //Значение поля должно быть больше 0, Поле может быть null
+    private Integer shouldBeExpelled; //Значение поля должно быть больше 0, Поле может быть null
+    private FormOfEducation formOfEducation; //Поле может быть null
+    private Semester semester; //Поле может быть null
+    private Person groupAdmin; //Поле может быть null
+
+    public StudyGroup(String name, Coordinates coordinates, Integer studentsCount, Integer shouldBeExpelled, FormOfEducation formOfEducation, Semester semester, Person groupAdmin) {
+        if (name == null || name.isEmpty() || coordinates == null || studentsCount == null || studentsCount <= 0 || shouldBeExpelled < 0) throw new IllegalArgumentException("The fields can't be null or empty sequences.");
+        this.id = nextId++;
+        this.name = name;
+        this.coordinates = coordinates;
+        this.creationDate = java.time.LocalDate.now();
+        this.formOfEducation = formOfEducation;
+        this.semester = semester;
+        this.groupAdmin = groupAdmin;
+    }
+
+    public StudyGroup(String name, Coordinates coordinates) {
+        this.id = nextId++;
+        this.name = name;
+        this.coordinates = coordinates;
+        this.creationDate = java.time.LocalDate.now();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public java.time.LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public Integer getStudentsCount() {
+        return studentsCount;
+    }
+
+    public Integer getShouldBeExpelled() {
+        return shouldBeExpelled;
+    }
+
+    public FormOfEducation getFormOfEducation() {
+        return formOfEducation;
+    }
+
+    public Semester getSemester() {
+        return semester;
+    }
+
+    public Person getGroupAdmin() {
+        return groupAdmin;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public void setStudentsCount(Integer studentsCount) {
+        this.studentsCount = studentsCount;
+    }
+
+    public void setShouldBeExpelled(Integer shouldBeExpelled) {
+        this.shouldBeExpelled = shouldBeExpelled;
+    }
+
+    public void setFormOfEducation(FormOfEducation formOfEducation) {
+        this.formOfEducation = formOfEducation;
+    }
+
+    public void setSemester(Semester semester) {
+        this.semester = semester;
+    }
+
+    public void setGroupAdmin(Person groupAdmin) {
+        this.groupAdmin = groupAdmin;
+    }
+
+    @Override
+    public int compareTo(StudyGroup studyGroup) {
+        if (studentsCount > studyGroup.studentsCount) return 1;
+        if (studentsCount < studyGroup.studentsCount) return -1;
+        return 0;
+    }
+}
