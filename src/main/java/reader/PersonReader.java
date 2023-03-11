@@ -55,8 +55,8 @@ public class PersonReader {
 
 
     public Person readPerson(Scanner scanner) throws InvalidInputException{
-        String name = PersonReader.readName(scanner);
-        Color color = PersonReader.readHairColor(scanner);
+        String name = readName(scanner);
+        Color color = readHairColor(scanner);
 
         LocationReader lr = new LocationReader();
         Location location = lr.readLocation(scanner);
@@ -64,7 +64,7 @@ public class PersonReader {
         Person person = new Person(name, color, location);
 
 
-        /*boolean answer = ConfirmationReader.checkTheDesireToEnter(scanner, "passportID");
+        boolean answer = ConfirmationReader.checkTheDesireToEnter(scanner, "passportID");
         if (answer) {
             String passportID = readPassportId(scanner);
             person.setPassportID(passportID);
@@ -75,7 +75,7 @@ public class PersonReader {
             Country country = readNationality(scanner);
             person.setNationality(country);
         }
-*/
+
         return person;
     }
 

@@ -10,7 +10,8 @@ public class LocationReader {
     public static Double readX(Scanner scanner) throws InvalidInputException {
         double x;
         try {
-            x = scanner.nextDouble();
+            String input = scanner.nextLine();
+            x = Double.parseDouble(input);
         }
         catch (InputMismatchException e) {
             throw new InvalidInputException("x coordinate is a number, please try again");
@@ -21,7 +22,8 @@ public class LocationReader {
     public static Float readY(Scanner scanner) throws InvalidInputException {
         float y;
         try {
-            y = scanner.nextFloat();
+            String input = scanner.nextLine();
+            y = Float.parseFloat(input);
         }
         catch (InputMismatchException e) {
             throw new InvalidInputException("y coordinate is a number, please try again");
@@ -32,7 +34,8 @@ public class LocationReader {
     public static Long readZ(Scanner scanner) throws InvalidInputException {
         long z;
         try {
-            z = scanner.nextLong();
+            String input = scanner.nextLine();
+            z = Long.parseLong(input);
         }
         catch (InputMismatchException e) {
             throw new InvalidInputException("z coordinate is a number, please try again");
@@ -46,14 +49,14 @@ public class LocationReader {
 
         Float y;
         y = readY(scanner);
-        /*
+
         long z;
         boolean answer = ConfirmationReader.checkTheDesireToEnter(scanner, "z coordinate");
         if (answer) {
             z = readZ(scanner);
             return new Location(x, y, z);
         }
-        */
+
         return new Location(x, y);
     }
 }

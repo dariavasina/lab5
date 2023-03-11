@@ -90,7 +90,7 @@ public class StudyGroupReader {
         }
 
         StudyGroup studyGroup = new StudyGroup(name, coordinates);
-        /*
+
         boolean answer = ConfirmationReader.checkTheDesireToEnter(scanner, "studentsCount");
         if (answer) {
             Integer studentsCount;
@@ -161,9 +161,6 @@ public class StudyGroupReader {
                 }
             }
         }
-
-         */
-
         return studyGroup;
     }
 }

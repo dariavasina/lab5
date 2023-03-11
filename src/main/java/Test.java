@@ -1,17 +1,11 @@
 import collection.StudyGroupCollection;
-import commands.Command;
-import commands.InsertCommand;
-import commands.ShowCommand;
 import data.*;
 import exceptions.CommandDoesNotExistException;
 import exceptions.InvalidInputException;
-import exceptions.KeyAlreadyExistsException;
-import exceptions.KeyDoesNotExistException;
-import org.w3c.dom.ls.LSOutput;
 import reader.ConfirmationReader;
 import reader.CoordinatesReader;
+import reader.LocationReader;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Test {
@@ -37,23 +31,11 @@ public class Test {
          */
 
         CommandParser cp = new CommandParser(sgc);
-        CoordinatesReader cr = new CoordinatesReader();
-        ConfirmationReader confreader = new ConfirmationReader();
-        //boolean answer = confreader.checkTheDesireToEnter(scanner, "t");
-        //System.out.println(answer);
-
         try {
-            cr.readCoordinates(scanner);
-        } catch (InvalidInputException e) {
-            System.out.print(e.getMessage());
-        }
-
-        /*try {
             cp.getCommand(scanner);
         } catch (CommandDoesNotExistException e) {
             System.out.println(e.getMessage());
         }
-         */
 
     }
 
