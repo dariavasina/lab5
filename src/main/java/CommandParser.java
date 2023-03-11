@@ -1,82 +1,95 @@
 import collection.StudyGroupCollection;
 import commands.*;
+import data.Person;
 import data.StudyGroup;
+import exceptions.CommandDoesNotExistException;
 import exceptions.InvalidInputException;
+import reader.PersonReader;
 import reader.StudyGroupReader;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class CommandParser {
-    private StudyGroupCollection collection;
+    private final StudyGroupCollection collection;
     private final String filename;
+
 
     public CommandParser (StudyGroupCollection collection){
         this.collection = collection;
         this.filename = System.getenv("save_filename");
     }
 
-    public static Long checkKey(String input) throws InvalidInputException {
+    public static Long readKey(String input) throws InvalidInputException {
         long key;
         if (input.split(" ").length != 2) {
-            throw new InvalidInputException("Please enter a key for the new element");
+            throw new InvalidInputException("Please enter a key for the element");
         }
         else {
             String s = input.split(" ")[1];
             try {
-                key = Long.parseLong(s);
+                return Long.parseLong(s);
             }
             catch (NumberFormatException e) {
                 throw new InvalidInputException("Please enter a valid key");
             }
         }
-        return key;
     }
 
-    public Command selectCommand(Scanner scanner) throws InvalidInputException {
-        StudyGroupReader sgr = new StudyGroupReader();
+    public static Integer checkStudentsCount(String input) throws InvalidInputException {
+        if (input.split(" ").length != 2) {
+            throw new InvalidInputException("Please enter the value of studentsCount");
+        }
+        else {
+            String s = input.split(" ")[1];
+            try {
+                return Integer.parseInt(s);
+            } catch (NumberFormatException e) {
+                throw new InvalidInputException("Students count is a number, please try to enter again");
+            }
+        }
+    }
+
+    public void getCommand(Scanner scanner) throws CommandDoesNotExistException {
         String input = scanner.nextLine();
-        Command command;
+        List<String> commands = Arrays.asList("help", "info", "show", "insert", "update", "remove_key",
+                "clear", "save", "execute_script", "exit", "replace_if_greater", "replace_if_lower", "remove_greater_key",
+                "count_by_students_count", "filter_by_should_be_expelled", "print_field_descending_students_count");
+
+        List<String> commandsWithKey = Arrays.asList("insert", "replace_if_greater", "replace_if_lower", "remove_key",
+                                        "remove_greater_key");
+
         String commandName = input.split(" ")[0];
-        Long key;
-        StudyGroup studyGroup;
-        switch (commandName) {
-            case "help":
-                command = new HelpCommand(collection);
-            case "info":
-                command = new InfoCommand(collection);
-            case "show":
-                command = new ShowCommand(collection);
-            case "insert":
-                key = checkKey(input);
-                studyGroup = sgr.readStudyGroup(scanner);
-                command = new InsertCommand(collection, key, studyGroup);
-            case "update":
-                Long id = checkKey(input);
-                studyGroup = sgr.readStudyGroup(scanner);
-                command = new UpdateCommand(collection, key, studyGroup);
-            case "remove_key":
-                key = checkKey(input);
-                command = new RemoveKeyCommand(collection, key);
-            case "clear":
-                command = new ClearCommand(collection, scanner);
-            case "save":
-                command = new SaveCommand(collection);
-            case "execute_script":
-                command = new ExecuteScriptCommand(collection, fileName);
-            case "exit":
-                command = new ExitCommand(collection);
-            case "replace_if_greater":
-                command = new ReplaceIfGreaterCommand(collection);
-            case "replace_if_lower":
-                command = new ReplaceIfLowerCommand(collection);
-            case "remove_greater_key":
-                command = new RemoveGreaterKeyCommand(collection);
-            case "count_by_students_count":
-                command = new CountByStudentsCountCommand(collection);
-            case "filter_by_should_be_expelled":
-                command = new FilterByShouldBeExpelledCommand(collection);
-            default:
-                throw new InvalidInputException("The command does not exist, please try again");
+        CommandExecutor commandExecutor = new CommandExecutor(collection, commandName);
+
+        StudyGroupReader sgr = new StudyGroupReader();
+
+        if (commandsWithKey.contains(commandName)) {
+            try {
+                Long key = readKey(input);
+                if (!commandName.equals("remove_key") && !commandName.equals("remove_greater_key")) {
+                    StudyGroup studyGroup = sgr.readStudyGroup(scanner);
+                    commandExecutor.setKey(key);
+                    commandExecutor.setValue(studyGroup);
+                }
+            } catch (InvalidInputException e) {
+                System.out.print(e.getMessage());
+            }
+        }
+
+        if (commandName.contains("students_count")) {
+            try {
+                Integer studentsCount = checkStudentsCount(input);
+                commandExecutor.setStudentsCount(studentsCount);
+            } catch (InvalidInputException e) {
+                System.out.print(e.getMessage());
+            }
+        }
+
+        if (!commands.contains(commandName)) {
+            throw new CommandDoesNotExistException(commandName);
+        }
+        else {
+            commandExecutor.execute();
         }
     }
 }

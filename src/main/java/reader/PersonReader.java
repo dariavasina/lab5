@@ -64,7 +64,7 @@ public class PersonReader {
         Person person = new Person(name, color, location);
 
 
-        boolean answer = ConfirmationReader.checkTheDesireToEnter(scanner, "passportID");
+        /*boolean answer = ConfirmationReader.checkTheDesireToEnter(scanner, "passportID");
         if (answer) {
             String passportID = readPassportId(scanner);
             person.setPassportID(passportID);
@@ -75,11 +75,8 @@ public class PersonReader {
             Country country = readNationality(scanner);
             person.setNationality(country);
         }
-
+*/
         return person;
     }
-
-
-
 
 }

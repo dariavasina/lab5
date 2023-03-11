@@ -5,7 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7a94804-ef17-45ef-a837-0c49173798b4" name="Changes" comment="ыыы">
+      <change afterPath="$PROJECT_DIR$/src/main/java/CommandExecutor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/CommandDoesNotExistException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CommandParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommandParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/collection/Collection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/collection/Collection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/collection/StudyGroupCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/collection/StudyGroupCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ClearCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/CountByStudentsCountCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/CountByStudentsCountCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/HelpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/InsertCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/InsertCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/RemoveGreaterKeyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/RemoveGreaterKeyCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/RemoveKeyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/RemoveKeyCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/ReplaceIfGreaterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ReplaceIfGreaterCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/ReplaceIfLowerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ReplaceIfLowerCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/ShowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ShowCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/UpdateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/UpdateCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/StudyGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/StudyGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reader/ConfirmationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reader/ConfirmationReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reader/CoordinatesReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reader/CoordinatesReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reader/LocationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reader/LocationReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reader/PersonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reader/PersonReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/reader/StudyGroupReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reader/StudyGroupReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,28 +66,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_directory_selection": "C:/Users/Da/IdeaProjects/lab5/src/main/java/collection/management",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Da/IdeaProjects/lab5/src/main/java/collection/management&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="collection.management" />
@@ -103,7 +130,14 @@
       <workItem from="1677406416718" duration="22602000" />
       <workItem from="1677492357484" duration="1457000" />
       <workItem from="1677500487223" duration="5894000" />
-      <workItem from="1677527343673" duration="6717000" />
+      <workItem from="1677527343673" duration="11353000" />
+      <workItem from="1677608998913" duration="625000" />
+      <workItem from="1678032601955" duration="5312000" />
+      <workItem from="1678097262470" duration="1779000" />
+      <workItem from="1678106321203" duration="4533000" />
+      <workItem from="1678272187453" duration="12949000" />
+      <workItem from="1678296413843" duration="1206000" />
+      <workItem from="1678521093044" duration="3073000" />
     </task>
     <task id="LOCAL-00001" summary="ыыы">
       <created>1677532845588</created>
@@ -119,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677533029636</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ыыы">
+      <created>1677534076231</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677534076231</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

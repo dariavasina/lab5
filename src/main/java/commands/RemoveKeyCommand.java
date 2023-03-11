@@ -4,16 +4,14 @@ import collection.StudyGroupCollection;
 import exceptions.KeyDoesNotExistException;
 
 public class RemoveKeyCommand extends Command{
-    private final Long key;
-    public RemoveKeyCommand(StudyGroupCollection collection, Long key) {
+    public RemoveKeyCommand(StudyGroupCollection collection) {
         super(collection);
-        this.key = key;
     }
 
     @Override
     public void execute() {
         try {
-            getCollection().removeByKey(key);
+            getCollection().removeByKey(getKey());
         }
         catch (KeyDoesNotExistException e) {
             System.out.print(e.getMessage());

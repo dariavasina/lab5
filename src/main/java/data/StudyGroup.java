@@ -18,6 +18,8 @@ public class StudyGroup implements Comparable<StudyGroup> {
         this.id = nextId++;
         this.name = name;
         this.coordinates = coordinates;
+        this.studentsCount = studentsCount;
+        this.shouldBeExpelled = shouldBeExpelled;
         this.creationDate = java.time.LocalDate.now();
         this.formOfEducation = formOfEducation;
         this.semester = semester;
@@ -108,5 +110,16 @@ public class StudyGroup implements Comparable<StudyGroup> {
         if (studentsCount > studyGroup.studentsCount) return 1;
         if (studentsCount < studyGroup.studentsCount) return -1;
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + "\n" +
+                "Coordinates: " + coordinates + "\n" +
+                "Creation date: " + creationDate + "\n" +
+                "Number of students: " + studentsCount + "\n" +
+                "Should be expelled: " + shouldBeExpelled + "\n" +
+                "Form of education: " + formOfEducation + "\n" +
+                "Group admin: " + groupAdmin;
     }
 }

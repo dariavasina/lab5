@@ -46,13 +46,14 @@ public class LocationReader {
 
         Float y;
         y = readY(scanner);
-
+        /*
         long z;
         boolean answer = ConfirmationReader.checkTheDesireToEnter(scanner, "z coordinate");
         if (answer) {
             z = readZ(scanner);
             return new Location(x, y, z);
         }
+        */
         return new Location(x, y);
     }
 }

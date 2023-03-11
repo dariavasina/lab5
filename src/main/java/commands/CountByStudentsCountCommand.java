@@ -9,6 +9,6 @@ public class CountByStudentsCountCommand extends Command{
 
     @Override
     public void execute() {
-
+        getCollection().countByStudentsCount(getStudentsCount());
     }
 }

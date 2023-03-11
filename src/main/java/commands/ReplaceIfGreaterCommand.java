@@ -9,6 +9,6 @@ public class ReplaceIfGreaterCommand extends Command{
 
     @Override
     public void execute() {
-
+        getCollection().replaceIfGreater(getKey(), getValue());
     }
 }

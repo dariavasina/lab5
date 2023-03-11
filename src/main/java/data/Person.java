@@ -63,4 +63,13 @@ public class Person {
     public void setLocation(Location location) {
         this.location = location;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + ", " +
+                "Passport ID: " + passportID + ", " +
+                "Hair color: " + hairColor + ", " +
+                "Nationality: " + nationality + ", " +
+                "Location: " + location;
+    }
 }

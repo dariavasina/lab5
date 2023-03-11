@@ -1,6 +1,10 @@
 package commands;
 
 import collection.StudyGroupCollection;
+import data.StudyGroup;
+
+import java.util.Map;
+import java.util.Objects;
 
 public class ReplaceIfLowerCommand extends Command{
     public ReplaceIfLowerCommand(StudyGroupCollection collection) {
@@ -9,6 +13,6 @@ public class ReplaceIfLowerCommand extends Command{
 
     @Override
     public void execute() {
-
+        getCollection().replaceIfLower(getKey(), getValue());
     }
 }

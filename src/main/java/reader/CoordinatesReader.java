@@ -33,7 +33,9 @@ public class CoordinatesReader {
         Double x;
         x = readX(scanner);
         int y;
-        boolean answer = ConfirmationReader.checkTheDesireToEnter(scanner, "y coordinate");
+        ConfirmationReader cr = new ConfirmationReader();
+        boolean answer = cr.checkTheDesireToEnter(scanner, "y coordinate");
+        System.out.println(answer);
         if (answer) {
             y = readY(scanner);
             return new Coordinates(x, y);
