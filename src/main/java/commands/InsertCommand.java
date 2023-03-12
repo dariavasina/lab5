@@ -14,13 +14,7 @@ public class InsertCommand extends Command {
 
     @Override
     public void execute() {
-        try {
-            getCollection().insert(getKey(), getValue());
-            System.out.println("Element with key " + getKey().toString() + " added to collection");
-        }
-        catch (KeyAlreadyExistsException e) {
-            //System.out.print(e.getMessage());
-        }
-
+        getCollection().insert(getKey(), getValue());
+        System.out.println("Element with key " + getKey().toString() + " added to collection");
     }
 }

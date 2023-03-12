@@ -1,6 +1,7 @@
 package commands;
 
 import collection.StudyGroupCollection;
+import exceptions.KeyDoesNotExistException;
 
 public class ReplaceIfGreaterCommand extends Command{
     public ReplaceIfGreaterCommand(StudyGroupCollection collection) {

@@ -9,7 +9,6 @@ public class FilterByShouldBeExpelledCommand extends Command{
 
     @Override
     public void execute() {
-
-
+        getCollection().filterByShouldBeExpelled(getShouldBeExpelled());
     }
 }

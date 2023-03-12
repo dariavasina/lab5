@@ -10,11 +10,6 @@ public class RemoveKeyCommand extends Command{
 
     @Override
     public void execute() {
-        try {
-            getCollection().removeByKey(getKey());
-        }
-        catch (KeyDoesNotExistException e) {
-            System.out.print(e.getMessage());
-        }
+        getCollection().removeByKey(getKey());
     }
 }

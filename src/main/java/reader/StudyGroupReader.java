@@ -12,7 +12,7 @@ public class StudyGroupReader {
         System.out.print("Enter group's name: ");
         String name = scanner.nextLine().strip();
         if (name.isEmpty()) {
-            throw new InvalidInputException("The name can't be empty, please enter it again");
+            throw new InvalidInputException("The name can't be empty, please enter it again\n");
         }
         return name;
     }
@@ -21,48 +21,55 @@ public class StudyGroupReader {
         int studentsCount;
         System.out.print("Enter students' count: ");
         try {
-            studentsCount = scanner.nextInt();
+            String input = scanner.nextLine();
+            studentsCount = Integer.parseInt(input);
         }
-        catch (InputMismatchException e) {
-            throw new InvalidInputException("Students' count is a number, please try again");
+        catch (NumberFormatException nfe) {
+            throw new InvalidInputException("Students' count is a number, please try again\n");
         }
         return studentsCount;
     }
 
     public static Integer readShouldBeExpelled(Scanner scanner) throws InvalidInputException {
         int shouldBeExpelled;
-        System.out.print("Enter should be expelled coefficient ");
+        System.out.print("Enter shouldBeExpelled: ");
         try {
-            shouldBeExpelled = scanner.nextInt();
+            String input = scanner.nextLine();
+            shouldBeExpelled = Integer.parseInt(input);
         }
-        catch (InputMismatchException e) {
-            throw new InvalidInputException("Should be expelled coefficient is a number, please try again");
+        catch (NumberFormatException nfe) {
+            throw new InvalidInputException("ShouldBeExpelled is a number, please try again\n");
         }
         return shouldBeExpelled;
     }
 
     public static FormOfEducation readFormOfEducation(Scanner scanner) throws InvalidInputException {
         FormOfEducation f;
-        System.out.print("Enter one of the following forms of education: DISTANCE_EDUCATION, \nFULL_TIME_EDUCATION, \nEVENING_CLASSES");
+        System.out.println("Enter one of the following forms of education: \nDISTANCE_EDUCATION, \nFULL_TIME_EDUCATION, \nEVENING_CLASSES");
         String input = scanner.nextLine().toLowerCase().strip();
         switch (input) {
             case "distance_education" -> f = FormOfEducation.DISTANCE_EDUCATION;
             case "full_time_education" -> f = FormOfEducation.FULL_TIME_EDUCATION;
             case "evening_classes" -> f = FormOfEducation.EVENING_CLASSES;
-            default -> throw new InvalidInputException("This is not a form of education, please try again");
+            default -> throw new InvalidInputException("This is not a form of education, please try again\n");
         }
         return f;
     }
 
     public static Semester readSemester(Scanner scanner) throws InvalidInputException {
         Semester s;
-        System.out.print("Enter one of the following semesters: 3, \n4, \n8");
-        int input = scanner.nextInt();
-        switch (input) {
-            case 3 -> s = Semester.THIRD;
-            case 4 -> s = Semester.FOURTH;
-            case 8 -> s = Semester.EIGHTH;
-            default -> throw new InvalidInputException("Semester must be one of the listed numbers, please try again");
+        System.out.println("Enter one of the following semesters: \n3, \n4, \n8");
+        String input = scanner.nextLine();
+        try {
+            int semester = Integer.parseInt(input);
+            switch (semester) {
+                case 3 -> s = Semester.THIRD;
+                case 4 -> s = Semester.FOURTH;
+                case 8 -> s = Semester.EIGHTH;
+                default -> throw new InvalidInputException("Semester must be one of the listed numbers, please try again\n");
+            }
+        } catch (NumberFormatException e) {
+            throw new InvalidInputException("Please enter one of the listed numbers");
         }
         return s;
     }
@@ -78,16 +85,9 @@ public class StudyGroupReader {
             }
         }
 
-        Coordinates coordinates;
-        while (true) {
-            try {
-                CoordinatesReader reader = new CoordinatesReader();
-                coordinates = reader.readCoordinates(scanner);
-                break;
-            } catch (InvalidInputException e) {
-                System.out.print(e.getMessage());
-            }
-        }
+        CoordinatesReader reader = new CoordinatesReader();
+        Coordinates coordinates = reader.readCoordinates(scanner);
+
 
         StudyGroup studyGroup = new StudyGroup(name, coordinates);
 
@@ -100,10 +100,12 @@ public class StudyGroupReader {
                     break;
                 } catch (InvalidInputException e) {
                     System.out.print(e.getMessage());
-                    ;
                 }
             }
             studyGroup.setStudentsCount(studentsCount);
+        }
+        else {
+            studyGroup.setStudentsCount(0);
         }
 
         answer = ConfirmationReader.checkTheDesireToEnter(scanner, "shouldBeExpelled");
@@ -150,16 +152,9 @@ public class StudyGroupReader {
 
         answer = ConfirmationReader.checkTheDesireToEnter(scanner, "groupAdmin");
         if (answer) {
-            Person admin;
             PersonReader pr = new PersonReader();
-            while (true) {
-                try {
-                    admin = pr.readPerson(scanner);
-                    break;
-                } catch (InvalidInputException e) {
-                    System.out.print(e.getMessage());
-                }
-            }
+            Person admin = pr.readPerson(scanner);
+            studyGroup.setGroupAdmin(admin);
         }
         return studyGroup;
     }

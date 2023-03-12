@@ -2,12 +2,27 @@ package commands;
 
 import collection.StudyGroupCollection;
 import data.StudyGroup;
+import file.FileManager;
+
+import java.util.Scanner;
 
 public abstract class Command {
     private Long key;
     private StudyGroup value;
     private Integer studentsCount;
     private Integer shouldBeExpelled;
+    private Long id;
+    private Scanner scanner;
+
+    public FileManager getFileManager() {
+        return fileManager;
+    }
+
+    public void setFileManager(FileManager fileManager) {
+        this.fileManager = fileManager;
+    }
+
+    private FileManager fileManager;
 
     public StudyGroupCollection getCollection() {
         return collection;
@@ -37,6 +52,10 @@ public abstract class Command {
         this.value = value;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setStudentsCount(Integer field) {
         this.studentsCount = field;
     }
@@ -59,5 +78,13 @@ public abstract class Command {
 
     public Integer getStudentsCount() {
         return studentsCount;
+    }
+
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public Scanner getScanner() {
+        return scanner;
     }
 }

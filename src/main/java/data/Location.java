@@ -3,7 +3,7 @@ package data;
 public class Location {
     private Double x; //Поле не может быть null
     private Float y; //Поле не может быть null
-    private long z;
+    private Long z;
 
     public Location(Double x, Float y, long z) {
         if (x == null || y == null) throw new IllegalArgumentException("x and y coordinates can't be null");
@@ -16,6 +16,7 @@ public class Location {
         if (x == null || y == null) throw new IllegalArgumentException("x and y coordinates can't be null");
         this.x = x;
         this.y = y;
+        this.z = null;
     }
 
     public Double getX() {
@@ -34,7 +35,7 @@ public class Location {
         this.y = y;
     }
 
-    public long getZ() {
+    public Long getZ() {
         return z;
     }
 

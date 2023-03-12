@@ -5,11 +5,11 @@ import data.StudyGroup;
 import exceptions.KeyDoesNotExistException;
 
 public class UpdateCommand extends Command {
-    private Long key;
+    private Long id;
     private StudyGroup value;
 
-    public void setKey(Long key) {
-        this.key = key;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setValue(StudyGroup value) {
@@ -23,11 +23,9 @@ public class UpdateCommand extends Command {
     @Override
     public void execute() {
         try {
-            getCollection().updateByID(key, value);
+            getCollection().updateByID(id, value);
         } catch (KeyDoesNotExistException e) {
             System.out.println(e.getMessage());
         }
     }
-
-
 }

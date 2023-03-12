@@ -9,6 +9,6 @@ public class PrintFieldDescendingStudentsCountCommand extends Command{
 
     @Override
     public void execute() {
-
+        getCollection().printFieldDescendingStudentsCount();
     }
 }

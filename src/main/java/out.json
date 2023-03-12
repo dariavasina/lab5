@@ -1,0 +1,51 @@
+{
+  "1": {
+    "studentsCount": 20,
+    "groupAdmin": {
+      "name": "Roman",
+      "hairColor": "RED"
+    },
+    "shouldBeExpelled": 0,
+    "name": "P3112",
+    "coordinates": {
+      "x": 3,
+      "y": 4
+    },
+    "semester": "THIRD",
+    "location": {
+      "x": 4,
+      "y": 3
+    },
+    "id": 0,
+    "formOfEducation": "FULL_TIME_EDUCATION"
+  },
+  "2": {
+    "studentsCount": 15,
+    "groupAdmin": {
+      "name": "Danil",
+      "hairColor": "YELLOW"
+    },
+    "shouldBeExpelled": 5,
+    "name": "M3024",
+    "coordinates": {
+      "x": 14.8,
+      "y": 22
+    },
+    "semester": "FOURTH",
+    "location": {
+      "x": 56.56,
+      "y": 22.44
+    },
+    "id": 1,
+    "formOfEducation": "DISTANCE_EDUCATION"
+  },
+  "5": {
+    "studentsCount": 0,
+    "name": "n",
+    "coordinates": {
+      "x": 5,
+      "y": 0
+    },
+    "id": 2
+  }
+}

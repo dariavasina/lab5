@@ -3,7 +3,7 @@ import java.time.LocalDate;
 
 public class StudyGroup implements Comparable<StudyGroup> {
     private Long id;
-    private static Long nextId = 1L;
+    private static Long nextId = 0L;
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
     private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
@@ -14,8 +14,8 @@ public class StudyGroup implements Comparable<StudyGroup> {
     private Person groupAdmin; //Поле может быть null
 
     public StudyGroup(String name, Coordinates coordinates, Integer studentsCount, Integer shouldBeExpelled, FormOfEducation formOfEducation, Semester semester, Person groupAdmin) {
-        if (name == null || name.isEmpty() || coordinates == null || studentsCount == null || studentsCount <= 0 || shouldBeExpelled < 0) throw new IllegalArgumentException("The fields can't be null or empty sequences.");
-        this.id = nextId++;
+        this.id = nextId;
+        nextId++;
         this.name = name;
         this.coordinates = coordinates;
         this.studentsCount = studentsCount;
@@ -27,7 +27,8 @@ public class StudyGroup implements Comparable<StudyGroup> {
     }
 
     public StudyGroup(String name, Coordinates coordinates) {
-        this.id = nextId++;
+        this.id = nextId;
+        nextId++;
         this.name = name;
         this.coordinates = coordinates;
         this.creationDate = java.time.LocalDate.now();
@@ -114,12 +115,13 @@ public class StudyGroup implements Comparable<StudyGroup> {
 
     @Override
     public String toString() {
-        return "Name: " + name + "\n" +
+        return "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
                 "Coordinates: " + coordinates + "\n" +
                 "Creation date: " + creationDate + "\n" +
                 "Number of students: " + studentsCount + "\n" +
                 "Should be expelled: " + shouldBeExpelled + "\n" +
                 "Form of education: " + formOfEducation + "\n" +
-                "Group admin: " + groupAdmin;
+                "Group admin: " + groupAdmin + "\n";
     }
 }

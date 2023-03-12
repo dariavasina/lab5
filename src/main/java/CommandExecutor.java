@@ -1,17 +1,22 @@
 import collection.StudyGroupCollection;
 import commands.*;
 import data.StudyGroup;
+import file.FileManager;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class CommandExecutor {
     private StudyGroupCollection collection;
     private String commandName;
     private Long key;
+    private Long id;
     private StudyGroup value;
     private Integer studentsCount;
     private Integer shouldBeExpelled;
+    private Scanner scanner;
+    private FileManager fileManager;
 
     public CommandExecutor(StudyGroupCollection collection, String commandName) {
         this.collection = collection;
@@ -26,12 +31,24 @@ public class CommandExecutor {
         this.value = value;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setStudentsCount(Integer studentsCount) {
         this.studentsCount = studentsCount;
     }
 
     public void setShouldBeExpelled(Integer shouldBeExpelled) {
         this.shouldBeExpelled = shouldBeExpelled;
+    }
+
+    public void setScanner(Scanner scanner) {
+        this.scanner = scanner;
+    }
+
+    public void setFileManager(FileManager fileManager) {
+        this.fileManager = fileManager;
     }
 
     public void execute() {
@@ -77,6 +94,10 @@ public class CommandExecutor {
             command.setKey(key);
         }
 
+        if (id != null) {
+            command.setId(id);
+        }
+
         if (value != null) {
             command.setValue(value);
         }
@@ -89,7 +110,14 @@ public class CommandExecutor {
             command.setStudentsCount(studentsCount);
         }
 
+        if (scanner != null) {
+            command.setScanner(scanner);
+        }
+
+        if (fileManager != null) {
+            command.setFileManager(fileManager);
+        }
+
         command.execute();
     }
-
 }

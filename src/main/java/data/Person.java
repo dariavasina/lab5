@@ -9,14 +9,12 @@ public class Person {
     private Location location; //Поле не может быть null
 
     public Person(String name, Color hairColor, Location location) {
-        if (name == null || name.isEmpty() || hairColor == null || location == null) throw new IllegalArgumentException("Fields can't be null or empty sequences");
         this.name = name;
         this.hairColor = hairColor;
         this.location = location;
     }
 
     public Person(String name, String passportID, Color hairColor, Country nationality, Location location) {
-        if (name == null || name.isEmpty() || passportID.length() > 30  || passportID.length() < 6 || hairColor == null || location == null) throw new IllegalArgumentException("Fields can't be null or empty sequences");
         this.name = name;
         this.passportID = passportID;
         this.hairColor = hairColor;

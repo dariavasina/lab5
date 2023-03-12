@@ -1,0 +1,42 @@
+{
+  "1": {
+    "name": "P3112",
+    "coordinates": {
+      "x": "3",
+      "y": "4"
+    },
+    "studentsCount": "20",
+    "shouldBeExpelled": "0",
+    "formOfEducation": "FULL_TIME_EDUCATION",
+    "semester": "THIRD",
+    "groupAdmin": {
+      "name": "Roman",
+      "passportID": "1234567",
+      "hairColor": "RED",
+      "location": {
+        "x": "4",
+        "y": "3"
+      }
+    }
+  },
+  "2": {
+    "name": "M3024",
+    "coordinates": {
+      "x": "14.8",
+      "y": "22"
+    },
+    "studentsCount": "15",
+    "shouldBeExpelled": "5",
+    "formOfEducation": "DISTANCE_EDUCATION",
+    "semester": "FOURTH",
+    "groupAdmin": {
+      "name": "Danil",
+      "passportID": "7654321",
+      "hairColor": "YELLOW",
+      "location": {
+        "x": "56.56",
+        "y": "22.44"
+      }
+    }
+  }
+}

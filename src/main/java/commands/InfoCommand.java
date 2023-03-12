@@ -9,6 +9,6 @@ public class InfoCommand extends Command{
 
     @Override
     public void execute() {
-
+        getCollection().info();
     }
 }

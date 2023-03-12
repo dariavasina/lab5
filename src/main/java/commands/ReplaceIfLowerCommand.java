@@ -2,6 +2,7 @@ package commands;
 
 import collection.StudyGroupCollection;
 import data.StudyGroup;
+import exceptions.KeyDoesNotExistException;
 
 import java.util.Map;
 import java.util.Objects;
