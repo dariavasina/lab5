@@ -1,9 +1,9 @@
 package commands;
 
-import collection.StudyGroupCollection;
+import collection.StudyGroupCollectionManager;
 
 public class ExitCommand extends Command{
-    public ExitCommand(StudyGroupCollection collection) {
+    public ExitCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
 

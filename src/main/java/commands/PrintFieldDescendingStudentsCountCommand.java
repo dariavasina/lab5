@@ -1,9 +1,9 @@
 package commands;
 
-import collection.StudyGroupCollection;
+import collection.StudyGroupCollectionManager;
 
 public class PrintFieldDescendingStudentsCountCommand extends Command{
-    public PrintFieldDescendingStudentsCountCommand(StudyGroupCollection collection) {
+    public PrintFieldDescendingStudentsCountCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
 

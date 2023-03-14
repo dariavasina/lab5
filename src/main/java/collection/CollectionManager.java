@@ -1,16 +1,12 @@
 package collection;
 
-import data.StudyGroup;
 import exceptions.KeyDoesNotExistException;
-import exceptions.KeyAlreadyExistsException;
-import reader.ConfirmationReader;
 
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Scanner;
 
-public abstract class Collection<K, V> {
+public abstract class CollectionManager<K, V> {
 
     private LinkedHashMap<K, V> collection;
     private java.time.LocalDate initializationDate;
@@ -19,12 +15,12 @@ public abstract class Collection<K, V> {
         return collection;
     }
 
-    public Collection() {
+    public CollectionManager() {
         this.collection = new LinkedHashMap<K, V>();
         this.initializationDate = java.time.LocalDate.now();
     }
 
-    public Collection(Map<K, V> collection) {
+    public CollectionManager(Map<K, V> collection) {
         this.collection = (LinkedHashMap<K, V>) collection;
         this.initializationDate = java.time.LocalDate.now();
     }

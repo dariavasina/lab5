@@ -1,4 +1,6 @@
 package data;
+import exceptions.InvalidInputException;
+
 import java.time.LocalDate;
 
 public class StudyGroup implements Comparable<StudyGroup> {
@@ -14,24 +16,32 @@ public class StudyGroup implements Comparable<StudyGroup> {
     private Person groupAdmin; //Поле может быть null
 
     public StudyGroup(String name, Coordinates coordinates, Integer studentsCount, Integer shouldBeExpelled, FormOfEducation formOfEducation, Semester semester, Person groupAdmin) {
-        this.id = nextId;
-        nextId++;
-        this.name = name;
-        this.coordinates = coordinates;
-        this.studentsCount = studentsCount;
-        this.shouldBeExpelled = shouldBeExpelled;
-        this.creationDate = java.time.LocalDate.now();
-        this.formOfEducation = formOfEducation;
-        this.semester = semester;
-        this.groupAdmin = groupAdmin;
+        try {
+            this.id = nextId;
+            nextId++;
+            setName(name);
+            setCoordinates(coordinates);
+            setStudentsCount(studentsCount);
+            setShouldBeExpelled(shouldBeExpelled);
+            setFormOfEducation(formOfEducation);
+            setSemester(semester);
+            setGroupAdmin(groupAdmin);
+        } catch (InvalidInputException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public StudyGroup(String name, Coordinates coordinates) {
-        this.id = nextId;
-        nextId++;
-        this.name = name;
-        this.coordinates = coordinates;
-        this.creationDate = java.time.LocalDate.now();
+        try {
+            this.id = nextId;
+            nextId++;
+            setName(name);
+            setCoordinates(coordinates);
+            this.creationDate = java.time.LocalDate.now();
+        } catch (InvalidInputException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     public Long getId() {
@@ -74,11 +84,17 @@ public class StudyGroup implements Comparable<StudyGroup> {
         this.id = id;
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws InvalidInputException {
+        if (name == null) {
+            throw new InvalidInputException("Please provide a group name");
+        }
         this.name = name;
     }
 
-    public void setCoordinates(Coordinates coordinates) {
+    public void setCoordinates(Coordinates coordinates) throws InvalidInputException {
+        if (coordinates == null) {
+            throw new InvalidInputException("Please provide coordinates for the group");
+        }
         this.coordinates = coordinates;
     }
 
@@ -86,11 +102,17 @@ public class StudyGroup implements Comparable<StudyGroup> {
         this.creationDate = creationDate;
     }
 
-    public void setStudentsCount(Integer studentsCount) {
+    public void setStudentsCount(Integer studentsCount) throws InvalidInputException {
+        if (studentsCount < 0) {
+            throw new InvalidInputException("Students' count can't be below 0!");
+        }
         this.studentsCount = studentsCount;
     }
 
-    public void setShouldBeExpelled(Integer shouldBeExpelled) {
+    public void setShouldBeExpelled(Integer shouldBeExpelled) throws InvalidInputException {
+        if (shouldBeExpelled < 0) {
+            throw new InvalidInputException("ShouldBeExpelled can't be below 0!");
+        }
         this.shouldBeExpelled = shouldBeExpelled;
     }
 

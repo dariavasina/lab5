@@ -1,13 +1,9 @@
 package commands;
 
-import collection.StudyGroupCollection;
-import data.StudyGroup;
-import exceptions.KeyDoesNotExistException;
-
-import java.util.Map;
+import collection.StudyGroupCollectionManager;
 
 public class RemoveGreaterKeyCommand extends Command{
-    public RemoveGreaterKeyCommand(StudyGroupCollection collection) {
+    public RemoveGreaterKeyCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
 

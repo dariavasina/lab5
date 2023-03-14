@@ -5,29 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7a94804-ef17-45ef-a837-0c49173798b4" name="Changes" comment="ы">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20160810.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/file/FileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/in.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/out.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_24_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/CommandExecutionException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/FileParseException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/file/StudyGroupJsonReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/file/StudyGroupJsonWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/reader/CommandFromScriptParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/reader/CoordinatesConsoleReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/reader/LocationConsoleReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/reader/PersonConsoleReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/reader/StudyGroupConsoleReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/script.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lab5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/lab5.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommandExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CommandParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommandParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/collection/Collection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/collection/Collection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/collection/StudyGroupCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/collection/StudyGroupCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/collection/management/CollectionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/collection/management/CollectionPrinter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/CommandExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CommandParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reader/CommandParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/collection/Collection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/collection/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/collection/StudyGroupCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/collection/StudyGroupCollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ClearCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/CountByStudentsCountCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/CountByStudentsCountCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/ExecuteScriptCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ExecuteScriptCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/ExitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ExitCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/FilterByShouldBeExpelledCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/FilterByShouldBeExpelledCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/HelpCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/InfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/InfoCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/InsertCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/InsertCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/PrintFieldDescendingStudentsCountCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/PrintFieldDescendingStudentsCountCommand.java" afterDir="false" />
@@ -36,17 +39,13 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/ReplaceIfGreaterCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ReplaceIfGreaterCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/ReplaceIfLowerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ReplaceIfLowerCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/SaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/SaveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/ShowCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ShowCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/UpdateCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/UpdateCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/StudyGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/StudyGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/CommandDoesNotExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/CommandDoesNotExistException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/CommandExecutionException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/CommandParseException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/IdDoesNotExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/IdDoesNotExistException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/IllegalArgumentException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/KeyAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/KeyAlreadyExistsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/KeyDoesNotExistException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/KeyDoesNotExistException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/file/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/file/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/in.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/in.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/out.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/out.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/reader/CoordinatesReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reader/CoordinatesReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/reader/LocationReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reader/LocationReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/reader/PersonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reader/PersonReader.java" afterDir="false" />
@@ -61,8 +60,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -94,7 +93,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/Da/IdeaProjects/lab5/src/main/java/collection/management&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Da/IdeaProjects/lab5/src/main/java/commands&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -108,13 +107,21 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="collection.management" />
-      <recent name="reader" />
       <recent name="commands" />
+      <recent name="file" />
+      <recent name="reader" />
+      <recent name="collection.management" />
       <recent name="com" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="lab5" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="lab5" />
@@ -124,6 +131,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
@@ -158,6 +166,12 @@
       <workItem from="1678521093044" duration="27752000" />
       <workItem from="1678620673711" duration="12638000" />
       <workItem from="1678638698340" duration="9266000" />
+      <workItem from="1678659019909" duration="272000" />
+      <workItem from="1678701874730" duration="2840000" />
+      <workItem from="1678710998375" duration="4859000" />
+      <workItem from="1678716181902" duration="144000" />
+      <workItem from="1678732884256" duration="10529000" />
+      <workItem from="1678815619036" duration="2623000" />
     </task>
     <task id="LOCAL-00001" summary="ыыы">
       <created>1677532845588</created>
@@ -194,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678528988350</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ы">
+      <created>1678659121649</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678659121649</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,16 +236,5 @@
     <MESSAGE value="ыыы" />
     <MESSAGE value="ы" />
     <option name="LAST_COMMIT_MESSAGE" value="ы" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Test.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

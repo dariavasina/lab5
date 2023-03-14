@@ -1,12 +1,18 @@
 package collection;
 import data.StudyGroup;
-import exceptions.KeyDoesNotExistException;
+import exceptions.*;
+import file.FileManager;
+import reader.CommandParser;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 
-public class StudyGroupCollection extends Collection<Long, StudyGroup>{
-    public StudyGroupCollection(Map<Long, StudyGroup> collection) {
+public class StudyGroupCollectionManager extends CollectionManager<Long, StudyGroup> {
+    private HashSet<String> executedScripts = new HashSet<>();
+
+    public StudyGroupCollectionManager(Map<Long, StudyGroup> collection) {
         super(collection);
     }
 
@@ -25,7 +31,6 @@ public class StudyGroupCollection extends Collection<Long, StudyGroup>{
         else {
             throw new KeyDoesNotExistException(id.toString());
         }
-
     }
 
     @Override
@@ -157,6 +162,45 @@ public class StudyGroupCollection extends Collection<Long, StudyGroup>{
         for (StudyGroup g : list) {
             System.out.println(g.getStudentsCount());
         }
+    }
+
+    public void executeCommandsFromFile(String fileName) throws CommandExecutionException, FileAccessException {
+        executedScripts.add(fileName);
+        try {
+            File file = new File(fileName);
+            if (!file.exists() || !file.canRead()) {
+                throw new FileAccessException("Cannot read file: " + fileName);
+            }
+            Scanner scanner = new Scanner(file);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine().trim();
+                String[] parts = line.split(" ", 2);
+                String commandName = parts[0];
+                String argument = parts.length > 1 ? parts[1] : "";
+                if (commandName.equalsIgnoreCase("execute_script")) {
+                    String scriptFileName = argument;
+                    if (executedScripts.contains(scriptFileName)) {
+                        throw new CommandExecutionException("Recursion detected while executing script: " + scriptFileName);
+                    }
+                    executedScripts.add(scriptFileName);
+                    executeCommandsFromFile(scriptFileName);
+                    executedScripts.remove(scriptFileName);
+                }
+
+                CommandParser cp = new CommandParser(this, new FileManager("", ""));
+                try {
+                    cp.readCommand(line, scanner, true);
+                } catch (InvalidInputException | CommandDoesNotExistException | KeyAlreadyExistsException |
+                         KeyDoesNotExistException e) {
+                    System.out.println(e.getMessage());
+                }
+
+                //scanner.close();
+            }
+        } catch (FileNotFoundException e) {
+            throw new FileAccessException("Cannot read file: " + fileName);
+        }
+        executedScripts.remove(fileName);
     }
 
 

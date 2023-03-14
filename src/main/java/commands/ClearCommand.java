@@ -1,10 +1,10 @@
 package commands;
 
-import collection.StudyGroupCollection;
+import collection.StudyGroupCollectionManager;
 
 
 public class ClearCommand extends Command{
-    public ClearCommand(StudyGroupCollection collection) {
+    public ClearCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
 

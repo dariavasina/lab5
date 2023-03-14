@@ -1,9 +1,9 @@
 package commands;
 
-import collection.StudyGroupCollection;
+import collection.StudyGroupCollectionManager;
 
 public class ShowCommand extends Command{
-    public ShowCommand(StudyGroupCollection collection) {
+    public ShowCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
 

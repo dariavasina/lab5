@@ -1,5 +1,6 @@
-import collection.StudyGroupCollection;
-import commands.*;
+package commands;
+
+import collection.StudyGroupCollectionManager;
 import data.StudyGroup;
 import file.FileManager;
 
@@ -8,7 +9,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class CommandExecutor {
-    private StudyGroupCollection collection;
+    private StudyGroupCollectionManager collection;
     private String commandName;
     private Long key;
     private Long id;
@@ -17,8 +18,9 @@ public class CommandExecutor {
     private Integer shouldBeExpelled;
     private Scanner scanner;
     private FileManager fileManager;
+    private String fileName;
 
-    public CommandExecutor(StudyGroupCollection collection, String commandName) {
+    public CommandExecutor(StudyGroupCollectionManager collection, String commandName) {
         this.collection = collection;
         this.commandName = commandName;
     }
@@ -49,6 +51,10 @@ public class CommandExecutor {
 
     public void setFileManager(FileManager fileManager) {
         this.fileManager = fileManager;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public void execute() {
@@ -116,6 +122,10 @@ public class CommandExecutor {
 
         if (fileManager != null) {
             command.setFileManager(fileManager);
+        }
+
+        if (fileName != null) {
+            command.setFileName(fileName);
         }
 
         command.execute();

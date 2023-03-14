@@ -1,29 +1,32 @@
 {
   "1": {
-    "studentsCount": 20,
+    "studentsCount": 7,
     "groupAdmin": {
-      "name": "Roman",
-      "hairColor": "RED"
+      "nationality": "RUSSIA",
+      "name": "FFF",
+      "hairColor": "RED",
+      "passportID": "456789"
     },
-    "shouldBeExpelled": 0,
-    "name": "P3112",
+    "shouldBeExpelled": 8,
+    "name": "t",
     "coordinates": {
-      "x": 3,
-      "y": 4
+      "x": 5,
+      "y": 6
     },
     "semester": "THIRD",
     "location": {
-      "x": 4,
-      "y": 3
+      "x": 8,
+      "y": 6,
+      "z": 9
     },
-    "id": 0,
-    "formOfEducation": "FULL_TIME_EDUCATION"
+    "formOfEducation": "EVENING_CLASSES"
   },
   "2": {
     "studentsCount": 15,
     "groupAdmin": {
       "name": "Danil",
-      "hairColor": "YELLOW"
+      "hairColor": "YELLOW",
+      "passportID": "7654321"
     },
     "shouldBeExpelled": 5,
     "name": "M3024",
@@ -36,16 +39,6 @@
       "x": 56.56,
       "y": 22.44
     },
-    "id": 1,
     "formOfEducation": "DISTANCE_EDUCATION"
-  },
-  "5": {
-    "studentsCount": 0,
-    "name": "n",
-    "coordinates": {
-      "x": 5,
-      "y": 0
-    },
-    "id": 2
   }
 }

@@ -1,6 +1,6 @@
 package commands;
 
-import collection.StudyGroupCollection;
+import collection.StudyGroupCollectionManager;
 import data.StudyGroup;
 import exceptions.KeyDoesNotExistException;
 
@@ -17,7 +17,7 @@ public class UpdateCommand extends Command {
     }
 
 
-    public UpdateCommand(StudyGroupCollection collection) {
+    public UpdateCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
     @Override

@@ -1,10 +1,9 @@
 package commands;
 
-import collection.StudyGroupCollection;
-import exceptions.KeyDoesNotExistException;
+import collection.StudyGroupCollectionManager;
 
 public class RemoveKeyCommand extends Command{
-    public RemoveKeyCommand(StudyGroupCollection collection) {
+    public RemoveKeyCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
 

@@ -1,13 +1,11 @@
 package commands;
 
-import collection.StudyGroupCollection;
-import file.FileManager;
+import collection.StudyGroupCollectionManager;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class SaveCommand extends Command{
-    public SaveCommand(StudyGroupCollection collection) {
+    public SaveCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
 
@@ -15,9 +13,9 @@ public class SaveCommand extends Command{
     public void execute() {
         try {
             getFileManager().saveToJson(getCollection());
+            System.out.println("Collection was successfully saved to file");
         } catch (IOException e) {
             System.out.println("Please provide an existing filename");
         }
-
     }
 }

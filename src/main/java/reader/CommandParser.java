@@ -1,18 +1,20 @@
-import collection.StudyGroupCollection;
+package reader;
+
+import collection.StudyGroupCollectionManager;
+import commands.CommandExecutor;
 import data.StudyGroup;
 import exceptions.*;
 import file.FileManager;
-import reader.StudyGroupReader;
 
 import java.util.*;
 
 public class CommandParser {
-    private final StudyGroupCollection collection;
+    private final StudyGroupCollectionManager collection;
     private final String filename;
     private FileManager fileManager;
 
 
-    public CommandParser (StudyGroupCollection collection, FileManager fileManager) {
+    public CommandParser (StudyGroupCollectionManager collection, FileManager fileManager) {
         this.collection = collection;
         this.filename = System.getenv("save_filename");
         this.fileManager = fileManager;
@@ -21,7 +23,7 @@ public class CommandParser {
     public static Long readKey(String input) throws InvalidInputException {
         long key;
         if (input.split(" ").length != 2) {
-            throw new InvalidInputException("Please enter a key for the element\n");
+            throw new InvalidInputException("Key for the element not found");
         }
         else {
             String s = input.split(" ")[1];
@@ -29,7 +31,7 @@ public class CommandParser {
                 return Long.parseLong(s);
             }
             catch (NumberFormatException e) {
-                throw new InvalidInputException("Please enter a valid key\n");
+                throw new InvalidInputException("Key must be a number");
             }
         }
     }
@@ -37,7 +39,7 @@ public class CommandParser {
     public Long readId(String input) throws InvalidInputException, IdDoesNotExistException {
         long id;
         if (input.split(" ").length != 2) {
-            throw new InvalidInputException("Please enter an id for the element\n");
+            throw new InvalidInputException("ID for the element not found");
         }
         else {
             String s = input.split(" ")[1];
@@ -45,32 +47,35 @@ public class CommandParser {
                 id = Long.parseLong(s);
             }
             catch (NumberFormatException e) {
-                throw new InvalidInputException("Please enter a valid id\n");
+                throw new InvalidInputException("ID must be a number");
             }
             if (collection.idInCollection(id)) {
                 return id;
             } else {
-                throw new IdDoesNotExistException("This id does not exist, please try again\n");
+                throw new IdDoesNotExistException("Element with this ID was not found");
             }
         }
     }
 
     public static Integer readInteger(String input, String valueName) throws InvalidInputException {
         if (input.split(" ").length != 2) {
-            throw new InvalidInputException("Please enter the value of " + valueName + "\n");
+            throw new InvalidInputException(valueName + " not found" + "\n");
         }
         else {
             String s = input.split(" ")[1];
             try {
                 return Integer.parseInt(s);
             } catch (NumberFormatException e) {
-                throw new InvalidInputException(valueName + " is a number, please try to enter again\n");
+                throw new InvalidInputException(valueName + " must be a number");
             }
         }
     }
 
-    public void readCommand(Scanner scanner) throws CommandDoesNotExistException, InvalidInputException, KeyDoesNotExistException, KeyAlreadyExistsException {
-        String input = scanner.nextLine();
+    public String getCommandFromConsole(Scanner scanner) {
+        return scanner.nextLine();
+    }
+
+    public void readCommand(String input, Scanner scanner, boolean fromFile) throws CommandDoesNotExistException, InvalidInputException, KeyDoesNotExistException, KeyAlreadyExistsException {
         List<String> commands = Arrays.asList("help", "info", "show", "insert", "update", "remove_key",
                 "clear", "save", "execute_script", "exit", "replace_if_greater", "replace_if_lower", "remove_greater_key",
                 "count_by_students_count", "filter_by_should_be_expelled", "print_field_descending_students_count");
@@ -86,7 +91,8 @@ public class CommandParser {
         String commandName = input.split(" ")[0];
         CommandExecutor commandExecutor = new CommandExecutor(collection, commandName);
 
-        StudyGroupReader sgr = new StudyGroupReader();
+        StudyGroupConsoleReader readerFromConsole = new StudyGroupConsoleReader();
+        StudyGroupReader readerFromScript = new StudyGroupReader();
 
         boolean flag = false;
 
@@ -107,49 +113,70 @@ public class CommandParser {
         }
 
         if (commandsWithStudyGroup.contains(commandName)) {
-            StudyGroup studyGroup = sgr.readStudyGroup(scanner);
+            StudyGroup studyGroup;
+            if (fromFile) {
+                studyGroup = readerFromScript.readStudyGroup(scanner);
+            }
+            else {
+                studyGroup = readerFromConsole.readStudyGroup(scanner);
+            }
             commandExecutor.setValue(studyGroup);
         }
 
-        if (commandName.equals("update")) {
-            try {
-                Long id = readId(input);
-                StudyGroup newStudyGroup = sgr.readStudyGroup(scanner);
-                commandExecutor.setId(id);
-                commandExecutor.setValue(newStudyGroup);
-            } catch (IdDoesNotExistException e) {
-                System.out.print(e.getMessage());
-                flag = true;
-            };
-        }
-
-        if (commandName.equals("count_by_students_count")) {
-            try {
-                Integer studentsCount = readInteger(input, "studentsCount");
-                commandExecutor.setStudentsCount(studentsCount);
-            } catch (InvalidInputException e) {
-                System.out.print(e.getMessage());
-                flag = true;
+        switch (commandName) {
+            case "update" -> {
+                try {
+                    Long id = readId(input);
+                    StudyGroup newStudyGroup;
+                    if (fromFile) {
+                        newStudyGroup = readerFromScript.readStudyGroup(scanner);
+                    }
+                    else {
+                        newStudyGroup = readerFromConsole.readStudyGroup(scanner);
+                    }
+                    commandExecutor.setId(id);
+                    commandExecutor.setValue(newStudyGroup);
+                } catch (IdDoesNotExistException e) {
+                    System.out.println(e.getMessage());
+                    flag = true;
+                }
             }
-        }
 
-        if (commandName.equals("filter_by_should_be_expelled")) {
-            try {
-                Integer shouldBeExpelled = readInteger(input, "shouldBeExpelled");
-                commandExecutor.setShouldBeExpelled(shouldBeExpelled);
-            } catch (InvalidInputException e) {
-                System.out.print(e.getMessage());
-                flag = true;
+            case "count_by_students_count" -> {
+                try {
+                    Integer studentsCount = readInteger(input, "studentsCount");
+                    commandExecutor.setStudentsCount(studentsCount);
+                } catch (InvalidInputException e) {
+                    System.out.println(e.getMessage());
+                    flag = true;
+                }
             }
+
+            case "filter_by_should_be_expelled" -> {
+                try {
+                    Integer shouldBeExpelled = readInteger(input, "shouldBeExpelled");
+                    commandExecutor.setShouldBeExpelled(shouldBeExpelled);
+                } catch (InvalidInputException e) {
+                    System.out.println(e.getMessage());
+                    flag = true;
+                }
+            }
+
+            case "save" -> {
+                commandExecutor.setFileManager(fileManager);
+            }
+
+            case "exit" -> {
+                commandExecutor.setScanner(scanner);
+            }
+
+            case "execute_script" -> {
+                String fileName = input.split(" ")[1];
+                commandExecutor.setFileName(fileName);
+            }
+
         }
 
-        if (commandName.equals("save")) {
-            commandExecutor.setFileManager(fileManager);
-        }
-
-        if (commandName.equals("exit")) {
-            commandExecutor.setScanner(scanner);
-        }
 
         if (!commands.contains(commandName)) {
             throw new CommandDoesNotExistException(commandName);
@@ -158,8 +185,6 @@ public class CommandParser {
             commandExecutor.execute();
         }
 
-        if (commandName.equals("save")) {
-            commandExecutor.setFileManager(fileManager);
-        }
+
     }
 }

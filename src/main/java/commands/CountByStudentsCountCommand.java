@@ -1,9 +1,9 @@
 package commands;
 
-import collection.StudyGroupCollection;
+import collection.StudyGroupCollectionManager;
 
 public class CountByStudentsCountCommand extends Command{
-    public CountByStudentsCountCommand(StudyGroupCollection collection) {
+    public CountByStudentsCountCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
 

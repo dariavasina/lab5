@@ -1,4 +1,6 @@
 package data;
+import exceptions.InvalidInputException;
+
 import java.util.Date;
 
 public class Person {
@@ -15,18 +17,25 @@ public class Person {
     }
 
     public Person(String name, String passportID, Color hairColor, Country nationality, Location location) {
-        this.name = name;
-        this.passportID = passportID;
-        this.hairColor = hairColor;
-        this.nationality = nationality;
-        this.location = location;
+        try {
+            setName(name);
+            setPassportID(passportID);
+            setHairColor(hairColor);
+            setNationality(nationality);
+            setLocation(location);
+        } catch (InvalidInputException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) throws InvalidInputException {
+        if (name == null || name.isEmpty()) {
+            throw new InvalidInputException("Name can't be empty!");
+        }
         this.name = name;
     }
 
@@ -34,7 +43,12 @@ public class Person {
         return passportID;
     }
 
-    public void setPassportID(String passportID) {
+    public void setPassportID(String passportID) throws InvalidInputException {
+        if (passportID != null) {
+            if (passportID.length() < 6 || passportID.length() > 30) {
+                throw new InvalidInputException("Passport ID's length is in between 6 and 30");
+            }
+        }
         this.passportID = passportID;
     }
 
@@ -42,7 +56,10 @@ public class Person {
         return hairColor;
     }
 
-    public void setHairColor(Color hairColor) {
+    public void setHairColor(Color hairColor) throws InvalidInputException {
+        if (hairColor == null) {
+            throw new InvalidInputException("Hair color must be specified");
+        }
         this.hairColor = hairColor;
     }
 
@@ -58,7 +75,10 @@ public class Person {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(Location location) throws InvalidInputException {
+        if (location == null) {
+            throw new InvalidInputException("Location must be specified");
+        }
         this.location = location;
     }
 

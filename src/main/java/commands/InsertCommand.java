@@ -1,14 +1,8 @@
 package commands;
-import collection.Collection;
-import collection.StudyGroupCollection;
-import data.StudyGroup;
-import exceptions.KeyAlreadyExistsException;
-import exceptions.KeyDoesNotExistException;
-
-import java.util.Map;
+import collection.StudyGroupCollectionManager;
 
 public class InsertCommand extends Command {
-    public InsertCommand(StudyGroupCollection collection) {
+    public InsertCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
 

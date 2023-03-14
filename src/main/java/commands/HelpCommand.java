@@ -1,9 +1,9 @@
 package commands;
 
-import collection.StudyGroupCollection;
+import collection.StudyGroupCollectionManager;
 
 public class HelpCommand extends Command{
-    public HelpCommand(StudyGroupCollection collection) {
+    public HelpCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
     @Override
@@ -16,7 +16,7 @@ public class HelpCommand extends Command{
                 update <id> {element}: update the value of a collection element whose id is equal to the specified
                 remove_key <id>: delete an element from the collection by its key
                 clear: clear the collection
-                save <filename>: save the collection to a file. USE RELATIVE PATHS.
+                save: save the collection to a file
                 execute_script <file_name>: read and execute the script from the specified file. The script contains commands in the same form in which they are entered by the user in interactive mode. USE RELATIVE PATHS.
                 exit: terminate the program (without saving to a file)
                 replace_if_greater <key> {element}: replace the value by key if the new value is greater than the old one

@@ -1,14 +1,9 @@
 package commands;
 
-import collection.StudyGroupCollection;
-import data.StudyGroup;
-import exceptions.KeyDoesNotExistException;
-
-import java.util.Map;
-import java.util.Objects;
+import collection.StudyGroupCollectionManager;
 
 public class ReplaceIfLowerCommand extends Command{
-    public ReplaceIfLowerCommand(StudyGroupCollection collection) {
+    public ReplaceIfLowerCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
 

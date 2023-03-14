@@ -1,9 +1,9 @@
 package commands;
 
-import collection.StudyGroupCollection;
+import collection.StudyGroupCollectionManager;
 
 public class InfoCommand extends Command{
-    public InfoCommand(StudyGroupCollection collection) {
+    public InfoCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
 

@@ -1,9 +1,9 @@
 package commands;
 
-import collection.StudyGroupCollection;
+import collection.StudyGroupCollectionManager;
 
 public class FilterByShouldBeExpelledCommand extends Command{
-    public FilterByShouldBeExpelledCommand(StudyGroupCollection collection) {
+    public FilterByShouldBeExpelledCommand(StudyGroupCollectionManager collection) {
         super(collection);
     }
 

@@ -1,6 +1,6 @@
 package commands;
 
-import collection.StudyGroupCollection;
+import collection.StudyGroupCollectionManager;
 import data.StudyGroup;
 import file.FileManager;
 
@@ -13,6 +13,7 @@ public abstract class Command {
     private Integer shouldBeExpelled;
     private Long id;
     private Scanner scanner;
+    private String fileName;
 
     public FileManager getFileManager() {
         return fileManager;
@@ -24,19 +25,19 @@ public abstract class Command {
 
     private FileManager fileManager;
 
-    public StudyGroupCollection getCollection() {
+    public StudyGroupCollectionManager getCollection() {
         return collection;
     }
 
-    public void setCollection(StudyGroupCollection collection) {
+    public void setCollection(StudyGroupCollectionManager collection) {
         this.collection = collection;
     }
 
-    private StudyGroupCollection collection;
+    private StudyGroupCollectionManager collection;
 
     public Command() {};
 
-    public Command(StudyGroupCollection collection) {
+    public Command(StudyGroupCollectionManager collection) {
         this.collection = collection;
     }
 
@@ -87,4 +88,13 @@ public abstract class Command {
     public Scanner getScanner() {
         return scanner;
     }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
 }
