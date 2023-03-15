@@ -7,7 +7,10 @@ import exceptions.KeyDoesNotExistException;
 import file.FileManager;
 import reader.CommandParser;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -15,13 +18,46 @@ public class Main {
     public static void main(String[] args)  {
         Scanner scanner = new Scanner(System.in);
 
-        String filename = System.getenv("save_filename");
-        FileManager fileManager = new FileManager(filename, "C:\\Users\\Da\\IdeaProjects\\lab5\\src\\main\\java\\out.json");
-        try {
-            Map<Long, StudyGroup> collection = fileManager.readFromJson();
-            StudyGroupCollectionManager sgc = new StudyGroupCollectionManager(collection);
+        String filename = args[0];
 
-            CommandParser cp = new CommandParser(sgc, fileManager);
+        FileManager fileManager = new FileManager();
+
+        File tmp = new File(".save.json");
+
+        LinkedHashMap<Long, StudyGroup> collection = new LinkedHashMap<>();
+
+        if (tmp.exists()) {
+            System.out.print("Would you like to restore the collection from your previous session? (y/n): ");
+            String answer = scanner.nextLine();
+
+            if (answer.equals("y")) {
+                try {
+                    collection = FileManager.readFromJson(filename);
+                } catch (IOException e) {
+                    System.out.println("Something went wrong, please try again");
+                }
+            }
+            else {
+                tmp.delete();
+                try {
+                    collection = FileManager.readFromJson(filename);
+                } catch (IOException e) {
+                    System.out.println("Please provide an existing filename");
+                }
+            }
+        }
+        else {
+            try {
+                collection = FileManager.readFromJson(filename);
+            } catch (IOException e) {
+                System.out.println("Please provide an existing filename");
+            }
+        }
+
+        try {
+            StudyGroupCollectionManager sgc = new StudyGroupCollectionManager(collection, filename);
+
+            CommandParser cp = new CommandParser(sgc, fileManager, filename);
 
             while (true) {
                 try {
@@ -34,11 +70,7 @@ public class Main {
                 }
             }
         } catch (IOException e) {
-            System.out.println("Please provide an existing filename");
+            //
         }
     }
-    //todo check before exit, check after each command if the collection was changed
-    //todo save file automatically to a tmp file
-    //todo something with command args
-
 }

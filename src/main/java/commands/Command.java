@@ -14,6 +14,7 @@ public abstract class Command {
     private Long id;
     private Scanner scanner;
     private String fileName;
+    private String collectionFile;
 
     public FileManager getFileManager() {
         return fileManager;
@@ -21,6 +22,14 @@ public abstract class Command {
 
     public void setFileManager(FileManager fileManager) {
         this.fileManager = fileManager;
+    }
+
+    public void setCollectionFile(String collectionFile) {
+        this.collectionFile = collectionFile;
+    }
+
+    public String getCollectionFile() {
+        return collectionFile;
     }
 
     private FileManager fileManager;

@@ -5,8 +5,7 @@ import data.*;
 import exceptions.FileParseException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -14,11 +13,14 @@ import java.util.*;
 
 public class FileManager {
     private String fileInput;
-    private String fileOutput;
+    private File tempFile;
 
-    public FileManager(String filePath, String fileOutput) {
-        this.fileInput = filePath;
-        this.fileOutput = fileOutput;
+    public FileManager() {
+        setTempFile();
+    }
+
+    public void setTempFile() {
+        this.tempFile = new File(".save.json");
     }
 
     public String getFileInput() {
@@ -29,7 +31,7 @@ public class FileManager {
         this.fileInput = fileInput;
     }
 
-    public LinkedHashMap<Long, StudyGroup> readFromJson() throws IOException {
+    public static LinkedHashMap<Long, StudyGroup> readFromJson(String fileInput) throws IOException {
         LinkedHashMap<Long, StudyGroup> groups = new LinkedHashMap<>();
         String fileContent = Files.readString(Paths.get(fileInput));
         JSONObject json = new JSONObject(fileContent);
@@ -46,7 +48,7 @@ public class FileManager {
     }
 
 
-    public void saveToJson(StudyGroupCollectionManager sgc) throws IOException {
+    public void saveToJson(StudyGroupCollectionManager sgc, String fileName) throws IOException {
         JSONObject json = new JSONObject();
         HashMap<Long, StudyGroup> collection = sgc.getMap();
 
@@ -55,9 +57,24 @@ public class FileManager {
             json.put(String.valueOf(entry.getKey()), groupJson);
         }
 
-        try (PrintWriter writer = new PrintWriter(fileOutput)) {
+        try (PrintWriter writer = new PrintWriter(fileName)) {
             writer.write(json.toString(2));
         }
+    }
+
+    public void deleteTempFile() {
+        tempFile.delete();
+    }
+
+    public static boolean filesAreEqual(String fileName1, String fileName2) throws IOException {
+        File file1 = new File(fileName1);
+        File file2 = new File(fileName2);
+
+        String f1 = file1.toString();
+        String f2 = file2.toString();
+
+        return f1.equals(f2);
+
     }
 
 

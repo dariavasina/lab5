@@ -4,6 +4,7 @@ import collection.StudyGroupCollectionManager;
 import data.StudyGroup;
 import file.FileManager;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -19,14 +20,20 @@ public class CommandExecutor {
     private Scanner scanner;
     private FileManager fileManager;
     private String fileName;
+    private String collectionFile;
 
     public CommandExecutor(StudyGroupCollectionManager collection, String commandName) {
         this.collection = collection;
         this.commandName = commandName;
+        this.fileManager = new FileManager();
     }
 
     public void setKey(Long key) {
         this.key = key;
+    }
+
+    public void setCollectionFile(String filename) {
+        this.collectionFile = filename;
     }
 
     public void setValue(StudyGroup value) {
@@ -128,6 +135,18 @@ public class CommandExecutor {
             command.setFileName(fileName);
         }
 
+        if (collectionFile != null) {
+            command.setCollectionFile(collectionFile);
+        }
+
         command.execute();
+
+        if (!commandName.equals("exit")) {
+            try {
+                fileManager.saveToJson(collection, ".save.json");
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }

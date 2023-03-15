@@ -12,7 +12,7 @@ public class SaveCommand extends Command{
     @Override
     public void execute() {
         try {
-            getFileManager().saveToJson(getCollection());
+            getFileManager().saveToJson(getCollection(), "collection.json");
             System.out.println("Collection was successfully saved to file");
         } catch (IOException e) {
             System.out.println("Please provide an existing filename");

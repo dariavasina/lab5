@@ -4,17 +4,20 @@ import exceptions.*;
 import file.FileManager;
 import reader.CommandParser;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.*;
 
 
 public class StudyGroupCollectionManager extends CollectionManager<Long, StudyGroup> {
     private HashSet<String> executedScripts = new HashSet<>();
-
-    public StudyGroupCollectionManager(Map<Long, StudyGroup> collection) {
+    private FileManager fileManager;
+    private String collectionFile;
+    public StudyGroupCollectionManager(Map<Long, StudyGroup> collection, String collectionFile) throws IOException {
         super(collection);
+        fileManager = new FileManager();
+        this.collectionFile = collectionFile;
     }
+
 
     @Override
     public void updateByID(Long id, StudyGroup newStudyGroup) throws KeyDoesNotExistException {
@@ -187,21 +190,17 @@ public class StudyGroupCollectionManager extends CollectionManager<Long, StudyGr
                     executedScripts.remove(scriptFileName);
                 }
 
-                CommandParser cp = new CommandParser(this, new FileManager("", ""));
+                CommandParser cp = new CommandParser(this, new FileManager(), collectionFile);
                 try {
                     cp.readCommand(line, scanner, true);
                 } catch (InvalidInputException | CommandDoesNotExistException | KeyAlreadyExistsException |
                          KeyDoesNotExistException e) {
                     System.out.println(e.getMessage());
                 }
-
-                //scanner.close();
             }
         } catch (FileNotFoundException e) {
             throw new FileAccessException("Cannot read file: " + fileName);
         }
         executedScripts.remove(fileName);
     }
-
-
 }

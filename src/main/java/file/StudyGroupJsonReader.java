@@ -133,5 +133,6 @@ public class StudyGroupJsonReader {
         }
 
         return new StudyGroup(name, coordinates, studentsCount, shouldBeExpelled, formOfEducation, semester, groupAdmin);
+
     }
 }

@@ -14,9 +14,9 @@ public class CommandParser {
     private FileManager fileManager;
 
 
-    public CommandParser (StudyGroupCollectionManager collection, FileManager fileManager) {
+    public CommandParser (StudyGroupCollectionManager collection, FileManager fileManager, String fileName) {
         this.collection = collection;
-        this.filename = System.getenv("save_filename");
+        this.filename = fileName;
         this.fileManager = fileManager;
     }
 
@@ -168,14 +168,16 @@ public class CommandParser {
 
             case "exit" -> {
                 commandExecutor.setScanner(scanner);
+                commandExecutor.setCollectionFile(filename);
             }
 
             case "execute_script" -> {
                 String fileName = input.split(" ")[1];
                 commandExecutor.setFileName(fileName);
             }
-
         }
+
+
 
 
         if (!commands.contains(commandName)) {
