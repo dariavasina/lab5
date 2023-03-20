@@ -12,18 +12,18 @@ public class ExitCommand extends Command{
 
     @Override
     public void execute() {
-        try {
-            boolean isSaved = FileManager.filesAreEqual(".save.json", getCollectionFile());
-            if (!isSaved) {
-                System.out.println("Are you sure you want to exit without saving? (y/n)");
-                String answer = getScanner().nextLine();
-                if (answer.equals("y")) {
-                    getFileManager().deleteTempFile();
-                    System.exit(0);
-                }
+        boolean isSaved = FileManager.filesAreEqual(getCollectionFile(), ".save.json");
+        if (!isSaved) {
+            System.out.println("Are you sure you want to exit without saving? (y/n)");
+            String answer = getScanner().nextLine();
+            if (answer.equals("y")) {
+                getFileManager().deleteTempFile();
+                System.exit(0);
             }
-        } catch (IOException e) {
-            System.out.println("Something went wrong, please try again");
+        }
+        else {
+            getFileManager().deleteTempFile();
+            System.exit(0);
         }
     }
 }

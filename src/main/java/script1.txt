@@ -1,2 +1,2 @@
-show
-execute_script src/main/java/script2.txt
+info
+execute_script script2.txt

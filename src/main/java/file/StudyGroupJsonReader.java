@@ -100,12 +100,15 @@ public class StudyGroupJsonReader {
             }
         }
 
-        Integer shouldBeExpelled = null;
-        try {
-            shouldBeExpelled = json.getInt("shouldBeExpelled");
-        } catch (JSONException e) {
-            throw new FileParseException(e);
+        Integer shouldBeExpelled = 0;
+        if (json.has("shouldBeExpelled")) {
+            try {
+                shouldBeExpelled = json.getInt("shouldBeExpelled");
+            } catch (JSONException e) {
+                throw new FileParseException(e);
+            }
         }
+
 
         FormOfEducation formOfEducation = null;
         if (json.has("formOfEducation")) {
@@ -130,6 +133,7 @@ public class StudyGroupJsonReader {
         Person groupAdmin = null;
         if (json.has("groupAdmin")) {
             groupAdmin = readGroupAdmin(json.getJSONObject("groupAdmin"));
+
         }
 
         return new StudyGroup(name, coordinates, studentsCount, shouldBeExpelled, formOfEducation, semester, groupAdmin);

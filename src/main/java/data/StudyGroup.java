@@ -146,4 +146,13 @@ public class StudyGroup implements Comparable<StudyGroup> {
                 "Form of education: " + formOfEducation + "\n" +
                 "Group admin: " + groupAdmin + "\n";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj.getClass() != StudyGroup.class) {
+            return false;
+        }
+        StudyGroup studyGroup = (StudyGroup) obj;
+        return name.equals(studyGroup.getName());
+    }
 }

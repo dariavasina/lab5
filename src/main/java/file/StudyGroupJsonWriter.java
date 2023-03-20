@@ -46,13 +46,9 @@ public class StudyGroupJsonWriter {
             JSONObject locationJson = new JSONObject();
             locationJson.put("x", location.getX());
             locationJson.put("y", location.getY());
-
             Long z = location.getZ();
-            if (!Objects.isNull(z)) {
-                locationJson.put("z", z);
-            }
-
-            json.put("location", locationJson);
+            locationJson.put("z", z);
+            groupAdminJson.put("location", locationJson);
 
             String passportID = groupAdmin.getPassportID();
             if (passportID != null) {

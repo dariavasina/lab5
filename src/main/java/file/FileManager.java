@@ -66,16 +66,27 @@ public class FileManager {
         tempFile.delete();
     }
 
-    public static boolean filesAreEqual(String fileName1, String fileName2) throws IOException {
-        File file1 = new File(fileName1);
-        File file2 = new File(fileName2);
+    public static boolean filesAreEqual(String fileName1, String fileName2) {
+        try {
+            LinkedHashMap<Long, StudyGroup> collectionAfterCommands = readFromJson(fileName2);
+            LinkedHashMap<Long, StudyGroup> collectionBeforeCommands = readFromJson(fileName1);
+            if (collectionAfterCommands.isEmpty()) {
+                return false;
+            }
+            if (collectionAfterCommands.size() == collectionBeforeCommands.size()) {
+                for (Long key : collectionBeforeCommands.keySet()) {
+                    if (!collectionAfterCommands.containsKey(key) || !collectionBeforeCommands.get(key).equals(collectionAfterCommands.get(key))) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
 
-        String f1 = file1.toString();
-        String f2 = file2.toString();
 
-        return f1.equals(f2);
-
+        } catch (IOException e) {
+            return true;
+        }
     }
-
 
 }

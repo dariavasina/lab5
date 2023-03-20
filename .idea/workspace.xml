@@ -10,24 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7a94804-ef17-45ef-a837-0c49173798b4" name="Changes" comment="ы">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/lab5_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/script1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/script2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/collection.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/collection/StudyGroupCollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/collection/StudyGroupCollectionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/CommandExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/CommandExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/commands/ExitCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/ExitCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/SaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/SaveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/StudyGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/StudyGroup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/file/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/file/FileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/file/StudyGroupJsonReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/file/StudyGroupJsonReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/file/StudyGroupJsonWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/file/StudyGroupJsonWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/in.json" beforeDir="false" afterPath="$PROJECT_DIR$/collection.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/out.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/out.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reader/CommandFromScriptParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/reader/CommandParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/reader/CommandParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/script1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/script1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/script2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/script2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test1.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +165,8 @@
       <workItem from="1678829173919" duration="4479000" />
       <workItem from="1678833673292" duration="58000" />
       <workItem from="1678833777332" duration="884000" />
-      <workItem from="1678838022681" duration="2069000" />
+      <workItem from="1678838022681" duration="2098000" />
+      <workItem from="1678864217193" duration="8763000" />
     </task>
     <task id="LOCAL-00001" summary="ыыы">
       <created>1677532845588</created>
@@ -222,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678821420053</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ы">
+      <created>1678840579260</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678840579260</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,16 +245,5 @@
     <MESSAGE value="ыыы" />
     <MESSAGE value="ы" />
     <option name="LAST_COMMIT_MESSAGE" value="ы" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
